@@ -1,60 +1,49 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="proyect_trm1.list">
-      <field name="name">proyect_trm1 list</field>
-      <field name="model">proyect_trm1.proyect_trm1</field>
+    <record id="project_trm1.project_manager_tree" model="ir.ui.view">
+      <field name="name">project_trm1.project_manager.tree</field>
+      <field name="model">project_trm1.project_manager</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="company" />
+          <field name="project" />
+          <field name="user" />
         </tree>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="proyect_trm1.action_window">
-      <field name="name">proyect_trm1 window</field>
-      <field name="res_model">proyect_trm1.proyect_trm1</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="proyect_trm1.action_server">
-      <field name="name">proyect_trm1 server</field>
-      <field name="model_id" ref="model_proyect_trm1_proyect_trm1"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
+    <record id="project_trm1.project_manager_form" model="ir.ui.view">
+      <field name="name">project_trm1.project_manager.form</field>
+      <field name="model">project_trm1.project_manager</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group colspan="2" col="2">
+              <field name="company"></field>
+              <field name="project"></field>
+              <field name="user"></field>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
--->
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="proyect_trm1" id="proyect_trm1.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="proyect_trm1.menu_1" parent="proyect_trm1.menu_root"/>
-    <menuitem name="Menu 2" id="proyect_trm1.menu_2" parent="proyect_trm1.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="proyect_trm1.menu_1_list" parent="proyect_trm1.menu_1"
-              action="proyect_trm1.action_window"/>
-    <menuitem name="Server to list" id="proyect_trm1" parent="proyect_trm1.menu_2"
-              action="proyect_trm1.action_server"/>
--->
+    <record id="project_trm1.project_manager_action_window" model="ir.actions.act_window">
+      <field name="name">project_trm1.project_manager.action.window</field>
+      <field name="res_model">project_trm1.project_manager</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="project_trm1.menu_root" name="Project manager" />
+  
+    <menuitem id="project_trm1.project_manager_menu" name="Project manager" parent="project_trm1.menu_root"/>
+
+    <menuitem
+      id="project_trm1.project_manager_menu_project"
+      name="project_manager"
+      action="project_trm1.project_manager_action_window"
+      parent="project_trm1.project_manager_menu"/>
+
   </data>
 </odoo>

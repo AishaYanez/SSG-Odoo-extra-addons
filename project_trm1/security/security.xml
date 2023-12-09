@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <data>
+
+    <record id="grupo_gestor" model="res.groups">
+      <field name="name">Project manager/Gestor projects</field>
+      <field name="comment">Perfil gestor de acceso al administrador de projectos</field>
+    </record>
+  
+    <record id="grupo_operario" model="res.groups">
+      <field name="name">Project manager/Operario projects</field>
+      <field name="comment">Perfil operario de acceso al administrador de projectos</field>
+    </record>
+  
+  </data>
+
+</odoo>
