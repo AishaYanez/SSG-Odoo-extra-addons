@@ -1,49 +1,50 @@
 <odoo>
   <data>
-    <record id="project_trm1.project_manager_tree" model="ir.ui.view">
-      <field name="name">project_trm1.project_manager.tree</field>
-      <field name="model">project_trm1.project_manager</field>
+    <record id="project_trm1.contrating_companies_tree" model="ir.ui.view">
+      <field name="name">project_trm1.contrating_companies.tree</field>
+      <field name="model">project_trm1.contrating_companies</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="company" />
-          <field name="project" />
-          <field name="user" />
+          <field name="logo" />
+          <field name="name" />
         </tree>
       </field>
     </record>
 
-    <record id="project_trm1.project_manager_form" model="ir.ui.view">
-      <field name="name">project_trm1.project_manager.form</field>
-      <field name="model">project_trm1.project_manager</field>
+    <record id="project_trm1.contrating_companies_form" model="ir.ui.view">
+      <field name="name">project_trm1.contrating_companies.form</field>
+      <field name="model">project_trm1.contrating_companies</field>
       <field name="arch" type="xml">
-        <form string="">
+        <form>
           <sheet>
             <group colspan="2" col="2">
-              <field name="company"></field>
-              <field name="project"></field>
-              <field name="user"></field>
+              <field name="logo"></field>
+              <field name="name"></field>
+              <field name="employees" />
+              <field name="company_size" />
+              <field name="project" />
             </group>
           </sheet>
         </form>
       </field>
     </record>
 
-    <record id="project_trm1.project_manager_action_window" model="ir.actions.act_window">
-      <field name="name">project_trm1.project_manager.action.window</field>
-      <field name="res_model">project_trm1.project_manager</field>
+    <record id="project_trm1.contrating_companies_action_window" model="ir.actions.act_window">
+      <field name="name">project_trm1.contrating_companies.action.window</field>
+      <field name="res_model">project_trm1.contrating_companies</field>
       <field name="view_mode">tree,form</field>
     </record>
 
 
-    <menuitem id="project_trm1.menu_root" name="Project manager" />
+    <menuitem id="project_trm1.menu_root" name="contrating_companies" />
   
-    <menuitem id="project_trm1.project_manager_menu" name="Project manager" parent="project_trm1.menu_root"/>
+    <menuitem id="project_trm1.contrating_companies_menu" name="contrating_companies" parent="project_trm1.menu_root"/>
 
     <menuitem
-      id="project_trm1.project_manager_menu_project"
-      name="project_manager"
-      action="project_trm1.project_manager_action_window"
-      parent="project_trm1.project_manager_menu"/>
+      id="project_trm1.contrating_companies_menu_project"
+      name="contrating_companies"
+      action="project_trm1.contrating_companies_action_window"
+      parent="project_trm1.contrating_companies_menu"/>
 
   </data>
 </odoo>

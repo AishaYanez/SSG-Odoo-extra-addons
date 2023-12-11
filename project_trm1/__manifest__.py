@@ -28,4 +28,10 @@
         'demo/demo.xml',
     ],
     'application': True,
+
+    'assets': {
+      'web.assets_common': [
+        'project_trm1/static/src/scss/style1.scss',
+      ]
+    }
 }
