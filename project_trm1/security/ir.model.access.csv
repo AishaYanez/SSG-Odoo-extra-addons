@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_proyect_trm1_contrating_companies_admin,project_trm1.contrating_companies.admin,model_project_trm1_contrating_companies,project_trm1.grupo_admin,1,1,1,1

@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="ssgproject.list">
+      <field name="name">ssgproject list</field>
+      <field name="model">ssgproject.ssgproject</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="ssgproject.action_window">
+      <field name="name">ssgproject window</field>
+      <field name="res_model">ssgproject.ssgproject</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="ssgproject.action_server">
+      <field name="name">ssgproject server</field>
+      <field name="model_id" ref="model_ssgproject_ssgproject"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="ssgproject" id="ssgproject.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="ssgproject.menu_1" parent="ssgproject.menu_root"/>
+    <menuitem name="Menu 2" id="ssgproject.menu_2" parent="ssgproject.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="ssgproject.menu_1_list" parent="ssgproject.menu_1"
+              action="ssgproject.action_window"/>
+    <menuitem name="Server to list" id="ssgproject" parent="ssgproject.menu_2"
+              action="ssgproject.action_server"/>
+-->
+  </data>
+</odoo>
