@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_proyect_trm1_contrating_companies_project_manager,project_trm1.contrating_companies.project_manager,model_project_trm1_contrating_companies,project_trm1.grupo_project_manager,1,1,1,1
