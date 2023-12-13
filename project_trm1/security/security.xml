@@ -3,23 +3,23 @@
 
   <data>
     
-    <record id="grupo_project_manager" model="res.groups">
-      <field name="name">Project manager/Project manager</field>
+    <record id="grupo_manager" model="res.groups">
+      <field name="name">Project planner/Manager projects</field>
       <field name="comment">Perfil de jefe de projecto de acceso al administrador de projectos</field>
     </record>
     
     <record id="grupo_analyst" model="res.groups">
-      <field name="name">Project manager/Analyst projects</field>
+      <field name="name">Project planner/Analyst projects</field>
       <field name="comment">Perfil operario de acceso al administrador de projectos</field>
     </record>
     
     <record id="grupo_programmer" model="res.groups">
-      <field name="name">Project manager/Programmer projects</field>
+      <field name="name">Project planner/Programmer projects</field>
       <field name="comment">Perfil operario de acceso al administrador de projectos</field>
     </record>
     
     <record id="base.user_admin" model="res.users">
-      <field name="groups_id" eval="[(4, ref('project_trm1.grupo_project_manager'))]" />
+      <field name="groups_id" eval="[(4, ref('project_trm1.grupo_manager'))]" />
     </record>
   </data>
 
