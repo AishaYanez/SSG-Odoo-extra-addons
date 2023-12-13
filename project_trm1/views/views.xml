@@ -1,12 +1,13 @@
 <odoo>
   <data>
+
     <record id="project_trm1.contrating_companies_tree" model="ir.ui.view">
       <field name="name">project_trm1.contrating_companies.tree</field>
       <field name="model">project_trm1.contrating_companies</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="logo" />
           <field name="name" />
+          <field name="company_size" />
         </tree>
       </field>
     </record>
@@ -18,11 +19,15 @@
         <form>
           <sheet>
             <group colspan="2" col="2">
-              <field name="logo" />
+              <field name="logo" widget="image" />
               <field name="name" />
               <field name="employees" />
               <field name="company_size" />
-              <field name="projects" />
+              <field name="projects">
+                <tree>
+                  <field name="name" />
+                </tree>
+              </field>
             </group>
           </sheet>
         </form>
@@ -30,21 +35,27 @@
     </record>
 
     <record id="project_project_extend" model="ir.ui.view">
-      <field name="name">project.project.form</field>
+      <field name="name">project.project.extend</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
       <field name="arch" type="xml">
-        <field name="partner_id" position="after">
-          <field name="company" />
+        <field name="user_id" position="after">
+          <field name="company"></field>
         </field>
       </field>
     </record>
 
-    <record id="project_project_extend" model="ir.ui.view">
-      <field name="name">project.project.tree</field>
+    <!-- <record id="project_project_extend" model="ir.ui.view">
+      <field name="name">project_project_extend</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.view_project" />
-    </record>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="after">
+            <field name="company" />
+        </xpath>
+
+      </field>
+    </record> -->
 
 
     <record id="project_trm1.contrating_companies_action_window" model="ir.actions.act_window">
@@ -61,20 +72,21 @@
 
 
     <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
-  
-    <menuitem id="project_trm1.contrating_companies_menu" name="Empresas" parent="project_trm1.menu_root"/>
+
+    <menuitem id="project_trm1.contrating_companies_menu" name="Empresas"
+      parent="project_trm1.menu_root" />
 
     <menuitem
       id="project_trm1.contrating_companies_menu_project"
       name="Empresas"
       action="project_trm1.contrating_companies_action_window"
-      parent="project_trm1.contrating_companies_menu"/>
+      parent="project_trm1.contrating_companies_menu" />
 
     <menuitem
       id="project_menu_project"
       name="Projectos"
       action="project_action_window"
-      parent="project_trm1.menu_root"/>
+      parent="project_trm1.menu_root" />
 
   </data>
 </odoo>
