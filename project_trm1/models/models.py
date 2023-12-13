@@ -6,8 +6,8 @@ class project_trm1_contrating_companies(models.Model):
  _name = 'project_trm1.contrating_companies'
  _description = 'project_trm1.contrating_companies'
 
+ projects = fields.One2many('project.project','company', string="Proyecto")
  name = fields.Char(string="Nombre de la empresa")
- project = fields.One2many("proyect.proyect","company",string="Proyectos")
  employees = fields.Integer(string="Número de empleados")
  logo= fields.Binary(string="Logo de la empresa")
  company_size = fields.Char(string="Tamaño de la empresa", compute="_companysize", store=True)
@@ -20,9 +20,12 @@ class project_trm1_contrating_companies(models.Model):
      else:
         r.company_size = 'Compañia pequeña'
 
-class proyecto_proyecto(models.Model):
+class project_trm1_proyecto(models.Model):
  _name = 'project.project'
  _inherit = 'project.project'
+ 
+ company = fields.Many2one("project_trm1.contrating_companies",string="Empresa",required=True,ondelete="cascade")
 
- company = fields.Many2one("project_trm1_contrating_companies", string="Compañia", required=True, ondelete="cascade")
-		
+class project_trm1_task(models.Model):
+ _name = 'project.task'
+ _inherit = 'project.task'

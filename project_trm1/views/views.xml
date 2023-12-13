@@ -1,6 +1,6 @@
 <odoo>
   <data>
-    <!-- <record id="project_trm1.contrating_companies_tree" model="ir.ui.view">
+    <record id="project_trm1.contrating_companies_tree" model="ir.ui.view">
       <field name="name">project_trm1.contrating_companies.tree</field>
       <field name="model">project_trm1.contrating_companies</field>
       <field name="arch" type="xml">
@@ -22,10 +22,21 @@
               <field name="name"></field>
               <field name="employees" />
               <field name="company_size" />
-              <field name="project" />
+              <field name="projects" />
             </group>
           </sheet>
         </form>
+      </field>
+    </record>
+
+    <record id="project_project_extend" model="ir.ui.view">
+      <field name="name">project.project.extended</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <field name="user_id" position="after">
+          <field name="company" />
+        </field>
       </field>
     </record>
 
@@ -44,7 +55,7 @@
       id="project_trm1.contrating_companies_menu_project"
       name="contrating_companies"
       action="project_trm1.contrating_companies_action_window"
-      parent="project_trm1.contrating_companies_menu"/> -->
+      parent="project_trm1.contrating_companies_menu"/>
 
   </data>
 </odoo>
