@@ -109,46 +109,5 @@
     <menuitem name="Municipios" id="incidencias.incidencias_menu_municipios"
       parent="incidencias.incidencias_menu" action="incidencias.municipios_action_window" />
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="incidencias.action_window">
-      <field name="name">incidencias window</field>
-      <field name="res_model">incidencias.incidencias</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="incidencias.action_server">
-      <field name="name">incidencias server</field>
-      <field name="model_id" ref="model_incidencias_incidencias"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="incidencias" id="incidencias.menu_root"/>
--->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="incidencias.menu_1" parent="incidencias.menu_root"/>
-    <menuitem name="Menu 2" id="incidencias.menu_2" parent="incidencias.menu_root"/>
--->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="incidencias.menu_1_list" parent="incidencias.menu_1"
-              action="incidencias.action_window"/>
-    <menuitem name="Server to list" id="incidencias" parent="incidencias.menu_2"
-              action="incidencias.action_server"/>
--->
   </data>
 </odoo>

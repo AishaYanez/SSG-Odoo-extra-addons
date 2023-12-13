@@ -6,7 +6,7 @@ class project_trm1_contrating_companies(models.Model):
  _name = 'project_trm1.contrating_companies'
  _description = 'project_trm1.contrating_companies'
 
- projects = fields.One2many('project.project','company', string="Proyecto")
+ projects = fields.One2many('project.project','company', string="Proyectos")
  name = fields.Char(string="Nombre de la empresa")
  employees = fields.Integer(string="Número de empleados")
  logo= fields.Binary(string="Logo de la empresa")

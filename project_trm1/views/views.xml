@@ -18,8 +18,8 @@
         <form>
           <sheet>
             <group colspan="2" col="2">
-              <field name="logo"></field>
-              <field name="name"></field>
+              <field name="logo" />
+              <field name="name" />
               <field name="employees" />
               <field name="company_size" />
               <field name="projects" />
@@ -30,32 +30,51 @@
     </record>
 
     <record id="project_project_extend" model="ir.ui.view">
-      <field name="name">project.project.extended</field>
+      <field name="name">project.project.form</field>
       <field name="model">project.project</field>
       <field name="inherit_id" ref="project.edit_project" />
       <field name="arch" type="xml">
-        <field name="user_id" position="after">
+        <field name="partner_id" position="after">
           <field name="company" />
         </field>
       </field>
     </record>
 
+    <record id="project_project_extend" model="ir.ui.view">
+      <field name="name">project.project.tree</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.view_project" />
+    </record>
+
+
     <record id="project_trm1.contrating_companies_action_window" model="ir.actions.act_window">
-      <field name="name">project_trm1.contrating_companies.action.window</field>
+      <field name="name">Empresa</field>
       <field name="res_model">project_trm1.contrating_companies</field>
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="project_action_window" model="ir.actions.act_window">
+      <field name="name">Proyecto</field>
+      <field name="res_model">project.project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
-    <menuitem id="project_trm1.menu_root" name="contrating_companies" />
+
+    <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
   
-    <menuitem id="project_trm1.contrating_companies_menu" name="contrating_companies" parent="project_trm1.menu_root"/>
+    <menuitem id="project_trm1.contrating_companies_menu" name="Empresas" parent="project_trm1.menu_root"/>
 
     <menuitem
       id="project_trm1.contrating_companies_menu_project"
-      name="contrating_companies"
+      name="Empresas"
       action="project_trm1.contrating_companies_action_window"
       parent="project_trm1.contrating_companies_menu"/>
+
+    <menuitem
+      id="project_menu_project"
+      name="Projectos"
+      action="project_action_window"
+      parent="project_trm1.menu_root"/>
 
   </data>
 </odoo>
