@@ -73,20 +73,26 @@
 
     <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
 
-    <menuitem id="project_trm1.contrating_companies_menu" name="Empresas"
+    <menuitem id="project_trm1.projects_menu" name="Proyectos"
       parent="project_trm1.menu_root" />
 
     <menuitem
       id="project_trm1.contrating_companies_menu_project"
       name="Empresas"
       action="project_trm1.contrating_companies_action_window"
-      parent="project_trm1.contrating_companies_menu" />
+      parent="project_trm1.menu_root" />
 
     <menuitem
       id="project_menu_project"
-      name="Projectos"
+      name="Proyectos"
       action="project_action_window"
-      parent="project_trm1.menu_root" />
+      parent="project_trm1.projects_menu" />
+      
+      <!-- <menuitem
+        id="project.task_menu_project"
+        name="Tareas"
+        action="project.task_action_window"
+        parent="project_trm1.projects_menu" /> -->
 
   </data>
 </odoo>

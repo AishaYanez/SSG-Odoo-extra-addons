@@ -20,7 +20,7 @@ class project_trm1_contrating_companies(models.Model):
      else:
         r.company_size = 'Compañia pequeña'
 
-class project_trm1_proyecto(models.Model):
+class project_trm1_projects(models.Model):
  _name = 'project.project'
  _inherit = 'project.project'
  
