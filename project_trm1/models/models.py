@@ -11,7 +11,7 @@ class project_trm1_contrating_companies(models.Model):
  employees = fields.Integer(string="Número de empleados")
  logo= fields.Binary(string="Logo de la empresa")
  company_size = fields.Char(string="Tamaño de la empresa", compute="_companysize", store=True)
- user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user)
+ user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user, readonly=True)
 
  @api.depends('employees')
  def _companysize(self):

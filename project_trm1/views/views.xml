@@ -46,18 +46,17 @@
       </field>
     </record>
 
-    <!-- <record id="project_project_extend" model="ir.ui.view">
-      <field name="name">project_project_extend</field>
+    <record id="project_project_extend_kanban" model="ir.ui.view">
+      <field name="name">project.project.extend.kanban</field>
       <field name="model">project.project</field>
-      <field name="inherit_id" ref="project.view_project" />
       <field name="arch" type="xml">
-        <xpath expr="//field[@name='user_id']" position="after">
-            <field name="company" />
-        </xpath>
-
+          <kanban>
+              <field name="name"/>
+              <field name="user_id"/>
+              <field name="company"/>
+          </kanban>
       </field>
-    </record> -->
-
+  </record>
 
     <record id="project_trm1.contrating_companies_action_window" model="ir.actions.act_window">
       <field name="name">Empresa</field>
@@ -68,7 +67,7 @@
     <record id="project_action_window" model="ir.actions.act_window">
       <field name="name">Proyecto</field>
       <field name="res_model">project.project</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <record id="task_action_window" model="ir.actions.act_window">
