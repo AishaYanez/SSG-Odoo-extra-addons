@@ -79,8 +79,8 @@
 
     <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
 
-    <menuitem id="project_trm1.projects_menu" name="Proyectos"
-      parent="project_trm1.menu_root" />
+    <!-- <menuitem id="project_trm1.projects_menu" name="Proyectos"
+      parent="project_trm1.menu_root" /> -->
 
     <menuitem
       id="project_trm1.contrating_companies_menu_project"
@@ -92,13 +92,13 @@
       id="project_menu_project"
       name="Proyectos"
       action="project_action_window"
-      parent="project_trm1.projects_menu" />
+      parent="project_trm1.menu_root" />
       
       <menuitem
         id="task_menu_project"
         name="Tareas"
         action="task_action_window"
-        parent="project_trm1.projects_menu" />
+        parent="project_trm1.menu_root" />
 
   </data>
 </odoo>
