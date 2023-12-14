@@ -20,7 +20,7 @@ class project_trm1_contrating_companies(models.Model):
      else:
         r.company_size = 'Compañia pequeña'
 
-class project_trm1_projects(models.Model):
+class project_trm1_project(models.Model):
  _name = 'project.project'
  _inherit = 'project.project'
  
@@ -29,3 +29,5 @@ class project_trm1_projects(models.Model):
 class project_trm1_task(models.Model):
  _name = 'project.task'
  _inherit = 'project.task'
+
+ programmer = fields.Char(string="Programador")
