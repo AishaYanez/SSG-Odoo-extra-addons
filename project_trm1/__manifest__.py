@@ -22,6 +22,7 @@
         'views/templates.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'data/project_tags_data.xml',
     ],
     
     'demo': [

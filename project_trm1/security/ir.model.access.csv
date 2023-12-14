@@ -7,3 +7,6 @@ access_project_trm1_project_manager,project.project.manager,model_project_projec
 access_project_trm1_project_analyst,project.project.analyst,model_project_project,project_trm1.grupo_analyst,1,0,0,0
 access_project_trm1_project_programmer,project.project.programmer,model_project_project,project_trm1.grupo_programmer,0,0,0,0
 
+access_project_trm1_task_manager,project.task.manager,model_project_task,project_trm1.grupo_manager,1,1,1,1
+access_project_trm1_task_analyst,project.task.analyst,model_project_task,project_trm1.grupo_analyst,1,1,1,1
+access_project_trm1_task_programmer,project.task.programmer,model_project_task,project_trm1.grupo_programmer,1,1,0,0
