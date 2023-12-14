@@ -70,6 +70,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="task_action_window" model="ir.actions.act_window">
+      <field name="name">Tarea</field>
+      <field name="res_model">project.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
 
@@ -88,11 +94,11 @@
       action="project_action_window"
       parent="project_trm1.projects_menu" />
       
-      <!-- <menuitem
-        id="project.task_menu_project"
+      <menuitem
+        id="task_menu_project"
         name="Tareas"
-        action="project.task_action_window"
-        parent="project_trm1.projects_menu" /> -->
+        action="task_action_window"
+        parent="project_trm1.projects_menu" />
 
   </data>
 </odoo>
