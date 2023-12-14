@@ -24,6 +24,8 @@
         'security/ir.model.access.csv',
         'data/project_tags_data.xml',
         'security/project_trm1_reglas_registro.xml',
+        'reports/companies_report.xml',
+        'reports/companies_report_view.xml',
     ],
     
     'demo': [

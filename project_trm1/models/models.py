@@ -7,13 +7,11 @@ class project_trm1_contrating_companies(models.Model):
  _description = 'project_trm1.contrating_companies'
 
  projects = fields.One2many('project.project','company', string="Proyectos")
- name = fields.Char(string="Nombre de la empresa")
+ name = fields.Char(string="Nombre de la empresa",required=True)
  employees = fields.Integer(string="Número de empleados")
  logo= fields.Binary(string="Logo de la empresa")
  company_size = fields.Char(string="Tamaño de la empresa", compute="_companysize", store=True)
-#  digital_signature = fields.Binary(string="Firma",related='user_id.digital_signature',readonly=True)
-
-#  user_id = fields.Many2one('res.user',string='Usuario que le da de alta')
+ user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user)
 
  @api.depends('employees')
  def _companysize(self):
@@ -28,10 +26,7 @@ class project_trm1_project(models.Model):
  _inherit = 'project.project'
  
  company = fields.Many2one("project_trm1.contrating_companies",string="Empresa",required=True,ondelete="cascade")
-#  user_id = fields.Many2one('res.user',string='Jefe de proyecto')
 
 class project_trm1_task(models.Model):
  _name = 'project.task'
  _inherit = 'project.task'
-
- programmer = fields.Char(string="Programador")
