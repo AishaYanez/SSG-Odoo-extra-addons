@@ -23,6 +23,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'data/project_tags_data.xml',
+        'security/project_trm1_reglas_registro.xml',
     ],
     
     'demo': [
