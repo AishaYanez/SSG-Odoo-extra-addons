@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <record model="ir.rule" id="tarea_para_programador">
+  <!-- <record model="ir.rule" id="tarea_para_programador">
     <field name="name">Programador accede solo a sus tareas</field>
     <field name="model_id" ref="model_project_task" />
-    <field name="domain_force">[('user_ids', 'in', user.id)]</field>
+    <field name="domain_force">[('user', 'in', user.ids)]</field>
     <field name="perm_read" eval="1" />
     <field name="perm_write" eval="1" />
     <field name="perm_create" eval="0" />
     <field name="perm_unlink" eval="0" />
     <field name="groups" eval="[(4, ref('grupo_programmer'))]" />
-  </record>
+  </record> -->
+
+  <!-- <record id="project_project_security_rule" model="ir.rule">
+    <field name="name">Revoke Project Permissions for Users</field>
+    <field name="model_id" ref="model_project_project"/>
+    <field name="groups" eval="[(6, 0, [ref('base.group_user')])]"/>
+    <field name="perm_read" eval="0"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record> -->
 </odoo>

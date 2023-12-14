@@ -10,4 +10,4 @@ access_project_trm1_project_programmer,project_trm1.project.programmer,model_pro
 
 access_project_trm1_task_manager,project_trm1.task.manager,model_project_task,project_trm1.grupo_manager,1,1,1,1
 access_project_trm1_task_analyst,project_trm1.task.analyst,model_project_task,project_trm1.grupo_analyst,1,1,1,1
-access_project_trm1_task_programmer,project_trm1.task.programmer,model_project_task,project_trm1.grupo_programmer,1,0,0,0
+access_project_trm1_task_programmer,project_trm1.task.programmer,model_project_task,project_trm1.grupo_programmer,1,1,0,0
