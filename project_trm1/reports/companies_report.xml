@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data noupdate="1">
+  <data>
   
-    <!-- <record id="project_trm1.task_report_action" model="ir.actions.report">
+    <record id="project_trm1.project_task_report_action" model="ir.actions.report">
       <field name="name">Tareas</field>
-      <field name="model">project_trm1.task</field>
+      <field name="model">project.task</field>
       <field name="report_type">qweb-html</field>
-      <field name="report_name">project_trm1.task_report_template</field>
-      <field name="report_file">project_trm1.task_report_template</field>
+      <field name="report_name">project_trm1.project_task_report_template</field>
+      <field name="report_file">project_trm1.project_task_report_template</field>
+      <field name="binding_model_id" ref="project_trm1.model_project_task" />
       <field name="binding_type">report</field>
-    </record> -->
+    </record>
   
   </data>
 </odoo>
