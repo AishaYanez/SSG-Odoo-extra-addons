@@ -1,6 +1,41 @@
 <odoo>
   <data>
 
+  <record id="res_config_settings_view_form" model="ir.ui.view">
+   <field name="name">
+       res.config.settings.view.form.inherit.project_trm1
+   </field>
+   <field name="model">res.config.settings</field>
+   <field name="priority" eval="15"/>
+   <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+   <field name="arch" type="xml">
+       <xpath expr="//div[hasclass('settings')]" position="inside">
+           <div class="app_settings_block"
+                data-string="Proyect trm1"
+                string="Proyect trm1"
+                data-key="project_trm1">
+               <h2>Proyect Management</h2>
+               <div class="row mt16 o_settings_container">
+                   <div class="col-12 col-lg-6 o_setting_box">
+                       <div class="o_setting_left_pane"/>
+                       <div class="o_setting_right_pane">
+                           <span class="o_form_label">Ver task</span>
+                           <div class="text-muted content-group mt16">
+                              <field name="show_task"></field>
+                           </div>
+                               <span class="o_form_label">Opción de visualización de proyectos</span>
+                              <div class="text-muted content-group mt16">
+                                  <field name="project_display_option" class="o_input o_field_widget o_required_modifier" 
+                                        placeholder="Opción de visualización de proyectos" required="1"/>
+                              </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </xpath>
+   </field>
+</record>
+
     <record id="project_trm1.contrating_companies_tree" model="ir.ui.view">
       <field name="name">project_trm1.contrating_companies.tree</field>
       <field name="model">project_trm1.contrating_companies</field>
@@ -77,6 +112,17 @@
     </record>
 
 
+    <record id="res_config_settings_action"
+       model="ir.actions.act_window">
+      <field name="name">Configuration</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+      <field name="context">{'module' : 'project_trm1'}</field>
+    </record>
+
+
     <menuitem id="project_trm1.menu_root" name="Planificador de proyectos" />
 
     <!-- <menuitem id="project_trm1.projects_menu" name="Proyectos"
@@ -99,6 +145,18 @@
         name="Tareas"
         action="task_action_window"
         parent="project_trm1.menu_root" />
+
+
+      <menuitem id="proyect_management_menu_action"
+         name="Configuration"
+         parent="project_trm1.menu_root"
+         sequence="6"/>
+
+      <menuitem id="proyect_settings_menu_action"
+         name="Settings"
+         parent="proyect_management_menu_action"
+         action="res_config_settings_action"
+         sequence="7"/>
 
   </data>
 </odoo>

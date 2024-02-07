@@ -30,3 +30,12 @@ class project_trm1_project(models.Model):
 class project_trm1_task(models.Model):
  _name = 'project.task'
  _inherit = 'project.task'
+
+
+class ResCofinSettings(models.TransientModel):
+   _inherit = 'res.config.settings'
+
+   show_task = fields.Boolean(String='Ver tareas', config_parameter='project_trm1.show_task')
+   project_display_option = fields.Selection([('show_projects', 'Mostrar proyectos'), ('hide_projects', 'Ocultar proyectos')],
+                                               string='Opción de visualización de proyectos',
+                                               config_parameter='project_trm1.project_display_option')
