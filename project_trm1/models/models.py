@@ -12,6 +12,11 @@ class project_trm1_contrating_companies(models.Model):
  logo= fields.Binary(string="Logo de la empresa")
  company_size = fields.Char(string="Tamaño de la empresa", compute="_companysize", store=True)
  user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user, readonly=True)
+ show_task = fields.Boolean(string="Mostrar tareas", default=lambda self: self._get_show_task(), readonly=True)
+
+ def _get_show_task(self):
+   param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.show_task')
+   return param.lower() == 'true' if param else False
 
  @api.depends('employees')
  def _companysize(self):
