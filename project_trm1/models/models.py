@@ -34,11 +34,13 @@ class project_trm1_contrating_companies(models.Model):
     return self
 
  def unlink(self):
-   self.env['project_trm1.register'].register_company_elimination(
+   deleted_companies = self.env['project_trm1.register']
+   for company in self:
+      deleted_companies.register_company_elimination(
             user=self.env.user,
-            name=self.name,
+            name=company.name,
             creation_date=fields.Datetime.now()
-     )
+      )
    return super(project_trm1_contrating_companies, self).unlink()
 
  def _compute_show_projects(self):
