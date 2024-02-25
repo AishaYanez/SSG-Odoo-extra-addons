@@ -14,6 +14,16 @@ class project_trm1_contrating_companies(models.Model):
  user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user, readonly=True)
  project_display_option = fields.Selection([('show_projects', 'Mostrar proyectos'), ('hide_projects', 'Ocultar proyectos')],string="Mostrar proyectos", compute="_compute_show_projects", readonly=True)
 
+ @api.model
+ def create(self, vals):
+        new_company = super(project_trm1_contrating_companies, self).create(vals)
+        self.env['project_trm1.register'].register_company_creation(
+            user=self.env.user,
+            name=new_company.name,
+            creation_date=fields.Datetime.now()
+        )
+        return new_company
+
  def _compute_show_projects(self):
         param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.project_display_option')
         self.project_display_option = param if param else 'hide_projects'
@@ -50,12 +60,23 @@ class project_trm1_register(models.Model):
 
    user_name = fields.Char(string='Nombre de usuario')
    company_name = fields.Char(string='Nombre de la Empresa')
-   date_change = fields.Datetime(string='Fecha/Hora de Creación')
-   modify_type = fields.Selection([
+   creation_date = fields.Datetime(string='Fecha/Hora de Creación')
+   action_type = fields.Selection([
         ('creacion', 'Creación'),
         ('modificacion', 'Modificación'),
         ('eliminacion', 'Eliminación')],
         string='Tipo de Acción')
+
+   @api.model
+   def register_company_creation(self, user, name, creation_date):
+        vals = {
+            'user_name': user.name,
+            'company_name': name,
+            'creation_date': creation_date,
+            'action_type': 'creacion'
+        }
+        self.create(vals)
+
         
 class ResCofinSettings(models.TransientModel):
    _inherit = 'res.config.settings'

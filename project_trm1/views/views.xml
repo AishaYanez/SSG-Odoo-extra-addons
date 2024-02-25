@@ -53,7 +53,9 @@
       <field name="arch" type="xml">
         <tree>
           <field name="user_name" />
-          <!-- <field name="company_size" /> -->
+          <field name="company_name" />
+          <field name="creation_date" />
+          <field name="action_type" />
         </tree>
       </field>
     </record>
@@ -66,6 +68,9 @@
           <sheet>
             <group colspan="2" col="2">
               <field name="user_name" />
+              <field name="company_name" />
+              <field name="creation_date" />
+              <field name="action_type" />
             </group>
           </sheet>
         </form>
@@ -177,7 +182,7 @@
       parent="project_trm1.menu_root" />
 
     <menuitem
-      id="register_menu_project"
+      id="register_menu_project_two"
       name="Registros"
       action="project_trm1.register_action_window"
       parent="project_trm1.menu_root" />
