@@ -33,6 +33,14 @@ class project_trm1_contrating_companies(models.Model):
      )
     return self
 
+ def unlink(self):
+   self.env['project_trm1.register'].register_company_elimination(
+            user=self.env.user,
+            name=self.name,
+            creation_date=fields.Datetime.now()
+     )
+   return super(project_trm1_contrating_companies, self).unlink()
+
  def _compute_show_projects(self):
         param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.project_display_option')
         self.project_display_option = param if param else 'hide_projects'
@@ -96,15 +104,15 @@ class project_trm1_register(models.Model):
         }
         self.env['project_trm1.register'].create(vals)
 
-   # @api.model
-   # def register_company_elimination(self, user, name, creation_date):
-   #      vals = {
-   #          'user_name': user.name,
-   #          'company_name': name,
-   #          'creation_date': creation_date,
-   #          'action_type': 'eliminacion'
-   #      }
-   #      self.create(vals)
+   @api.model
+   def register_company_elimination(self, user, name, creation_date):
+        vals = {
+            'user_name': user.name,
+            'company_name': name,
+            'creation_date': creation_date,
+            'action_type': 'eliminacion'
+        }
+        self.create(vals)
 
         
 class ResCofinSettings(models.TransientModel):
