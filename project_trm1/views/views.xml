@@ -47,6 +47,31 @@
       </field>
     </record>
 
+    <record id="project_trm1.register_tree" model="ir.ui.view">
+         <field name="name">project_trm1.register.tree</field>
+      <field name="model">project_trm1.register</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="user_name" />
+          <!-- <field name="company_size" /> -->
+        </tree>
+      </field>
+    </record>
+
+    <record id="project_trm1.register_form" model="ir.ui.view">
+      <field name="name">project_trm1.register.form</field>
+      <field name="model">project_trm1.register</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group colspan="2" col="2">
+              <field name="user_name" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <record id="project_trm1.contrating_companies_form" model="ir.ui.view">
       <field name="name">project_trm1.contrating_companies.form</field>
       <field name="model">project_trm1.contrating_companies</field>
@@ -110,6 +135,12 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="project_trm1.register_action_window" model="ir.actions.act_window">
+      <field name="name">Registro</field>
+      <field name="res_model">project_trm1.register</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <record id="project_action_window" model="ir.actions.act_window">
       <field name="name">Proyecto</field>
       <field name="res_model">project.project</field>
@@ -146,6 +177,18 @@
       parent="project_trm1.menu_root" />
 
     <menuitem
+      id="register_menu_project"
+      name="Registros"
+      action="project_trm1.register_action_window"
+      parent="project_trm1.menu_root" />
+
+    <menuitem
+      id="register_menu_project"
+      name="Registros"
+      action="project_trm1.register_action_window"
+      parent="base.menu_administration" />
+
+    <menuitem
       id="project_menu_project"
       name="Proyectos"
       action="project_action_window"
@@ -156,7 +199,6 @@
         name="Tareas"
         action="task_action_window"
         parent="project_trm1.menu_root" />
-
 
       <menuitem id="proyect_management_menu_action"
          name="Configuration"

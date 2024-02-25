@@ -44,6 +44,19 @@ class project_trm1_task(models.Model):
 
  project = fields.Many2one("project.project",string="Proyecto",required=True,ondelete="cascade")
 
+class project_trm1_register(models.Model):
+   _name = 'project_trm1.register'
+   _description = 'project_trm1.register'
+
+   user_name = fields.Char(string='Nombre de usuario')
+   company_name = fields.Char(string='Nombre de la Empresa')
+   date_change = fields.Datetime(string='Fecha/Hora de Creación')
+   modify_type = fields.Selection([
+        ('creacion', 'Creación'),
+        ('modificacion', 'Modificación'),
+        ('eliminacion', 'Eliminación')],
+        string='Tipo de Acción')
+        
 class ResCofinSettings(models.TransientModel):
    _inherit = 'res.config.settings'
 
