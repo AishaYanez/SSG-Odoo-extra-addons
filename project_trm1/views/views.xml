@@ -56,15 +56,17 @@
             <group colspan="2" col="2">
               <field name="logo" widget="image" />
               <field name="name" />
-              <field name="show_task" />
+              <field name="project_display_option" />
               <field name="employees" />
               <field name="company_size" />
               <field name="user" />
-              <field name="projects">
-                <tree>
-                  <field name="name" />
-                </tree>
-              </field>
+            </group>
+            <group attrs="{'invisible':  [('project_display_option', '=', 'hide_projects')]}">
+                  <field name="projects">
+                    <tree>
+                      <field name="name" />
+                    </tree>
+                  </field>
             </group>
           </sheet>
         </form>
@@ -78,6 +80,14 @@
       <field name="arch" type="xml">
         <field name="user_id" position="after">
           <field name="company"></field>
+          <field name="show_task" />
+            <group>
+              <field name="tasks" attrs="{'invisible': [('show_task', '=', False)]}">
+                <tree>
+                  <field name="name" />
+                </tree>
+              </field>
+            </group>
         </field>
       </field>
     </record>

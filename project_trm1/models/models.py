@@ -12,11 +12,11 @@ class project_trm1_contrating_companies(models.Model):
  logo= fields.Binary(string="Logo de la empresa")
  company_size = fields.Char(string="Tamaño de la empresa", compute="_companysize", store=True)
  user = fields.Many2one('res.users',string='Usuario que le da de alta',  default=lambda self: self.env.user, readonly=True)
- show_task = fields.Boolean(string="Mostrar tareas", default=lambda self: self._get_show_task(), readonly=True)
+ project_display_option = fields.Selection([('show_projects', 'Mostrar proyectos'), ('hide_projects', 'Ocultar proyectos')],string="Mostrar proyectos", compute="_compute_show_projects", readonly=True)
 
- def _get_show_task(self):
-   param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.show_task')
-   return param.lower() == 'true' if param else False
+ def _compute_show_projects(self):
+        param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.project_display_option')
+        self.project_display_option = param if param else 'hide_projects'
 
  @api.depends('employees')
  def _companysize(self):
@@ -31,11 +31,18 @@ class project_trm1_project(models.Model):
  _inherit = 'project.project'
  
  company = fields.Many2one("project_trm1.contrating_companies",string="Empresa",required=True,ondelete="cascade")
+ tasks = fields.One2many('project.task','project', string="Tareas")
+ show_task = fields.Boolean(string="Mostrar tareas", compute="_compute_show_task", readonly=True)
+
+ def _compute_show_task(self):
+   param = self.env['ir.config_parameter'].sudo().get_param('project_trm1.show_task')
+   self.show_task = param.lower() == 'true' if param else False
 
 class project_trm1_task(models.Model):
  _name = 'project.task'
  _inherit = 'project.task'
 
+ project = fields.Many2one("project.project",string="Proyecto",required=True,ondelete="cascade")
 
 class ResCofinSettings(models.TransientModel):
    _inherit = 'res.config.settings'
