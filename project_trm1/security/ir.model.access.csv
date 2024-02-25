@@ -12,6 +12,6 @@ access_project_trm1_task_manager,project_trm1.task.manager,model_project_task,pr
 access_project_trm1_task_analyst,project_trm1.task.analyst,model_project_task,project_trm1.grupo_analyst,1,1,1,1
 access_project_trm1_task_programmer,project_trm1.task.programmer,model_project_task,project_trm1.grupo_programmer,1,1,0,0
 
-access_project_trm1_register_manager,project_trm1.register.manager,model_project_trm1_register,project_trm1.grupo_manager,1,1,1,1
-access_project_trm1_register_analyst,project_trm1.register.analyst,model_project_trm1_register,project_trm1.grupo_analyst,1,1,1,1
-access_project_trm1_register_programmer,project_trm1.register.programmer,model_project_trm1_register,project_trm1.grupo_programmer,1,1,1,1
+access_project_trm1_register_manager,project_trm1.register.manager,model_project_trm1_register,project_trm1.grupo_manager,1,0,0,0
+access_project_trm1_register_analyst,project_trm1.register.analyst,model_project_trm1_register,project_trm1.grupo_analyst,0,0,0,0
+access_project_trm1_register_programmer,project_trm1.register.programmer,model_project_trm1_register,project_trm1.grupo_programmer,0,0,0,0

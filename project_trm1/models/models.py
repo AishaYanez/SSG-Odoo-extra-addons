@@ -83,7 +83,8 @@ class project_trm1_register(models.Model):
    action_type = fields.Selection([
         ('creacion', 'Creación'),
         ('modificacion', 'Modificación'),
-        ('eliminacion', 'Eliminación')],
+        ('eliminacion', 'Eliminación'),
+        ('consulta', 'Consulta')],
         string='Tipo de Acción')
 
    @api.model
@@ -115,6 +116,30 @@ class project_trm1_register(models.Model):
             'action_type': 'eliminacion'
         }
         self.create(vals)
+
+
+   # @api.model
+   # def  default_get(self,  fields_list):
+   #    company = super(project_trm1_contrating_companies, self).default_get(fields_list)
+
+   #    company['name'] = 'Empresa'
+
+   # self.env['project_trm1.register'].register_company_consult(
+   #          user=self.env.user,
+   #          name=company['name'],
+   #          creation_date=fields.Datetime.now()
+   #      )
+   # return company
+
+   # @api.model
+   # def register_company_consult(self, user, name, creation_date):
+   #      vals = {
+   #          'user_name': user.name,
+   #          'company_name': name,
+   #          'creation_date': creation_date,
+   #          'action_type': 'consulta'
+   #      }
+   #      self.create(vals)
 
         
 class ResCofinSettings(models.TransientModel):
