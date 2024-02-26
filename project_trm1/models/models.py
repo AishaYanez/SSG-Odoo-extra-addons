@@ -17,7 +17,7 @@ class project_trm1_contrating_companies(models.Model):
  @api.model
  def create(self, vals):
         new_company = super(project_trm1_contrating_companies, self).create(vals)
-        self.env['project_trm1.register'].register_company_creation(
+        self.env['project_trm1.register'].sudo().register_company_creation(
             user=self.env.user,
             name=new_company.name,
             creation_date=fields.Datetime.now()
@@ -26,7 +26,7 @@ class project_trm1_contrating_companies(models.Model):
 
  def write(self, vals):
     modified_company = super(project_trm1_contrating_companies, self).write(vals)
-    self.env['project_trm1.register'].register_company_modification(
+    self.env['project_trm1.register'].sudo().register_company_modification(
             user=self.env.user,
             name=self.name,
             creation_date=fields.Datetime.now()
@@ -36,7 +36,7 @@ class project_trm1_contrating_companies(models.Model):
  def unlink(self):
    deleted_companies = self.env['project_trm1.register']
    for company in self:
-      deleted_companies.register_company_elimination(
+      deleted_companies.sudo().register_company_elimination(
             user=self.env.user,
             name=company.name,
             creation_date=fields.Datetime.now()
